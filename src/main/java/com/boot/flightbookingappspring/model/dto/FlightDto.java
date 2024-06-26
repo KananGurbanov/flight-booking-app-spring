@@ -1,5 +1,6 @@
 package com.boot.flightbookingappspring.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -21,6 +22,7 @@ public class FlightDto {
     @NotBlank
     String destination;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     LocalDateTime departureTime;
 
     @NonNull

@@ -3,6 +3,7 @@ package com.boot.flightbookingappspring.service.impl;
 import com.boot.flightbookingappspring.dao.entity.FlightEntity;
 import com.boot.flightbookingappspring.dao.repository.FlightRepository;
 import com.boot.flightbookingappspring.exceptions.RecordNotFoundException;
+import com.boot.flightbookingappspring.mapper.FlightMapper;
 import com.boot.flightbookingappspring.model.dto.FlightDto;
 import com.boot.flightbookingappspring.service.FlightService;
 import lombok.RequiredArgsConstructor;
@@ -11,13 +12,13 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static com.boot.flightbookingappspring.mapper.FlightMapper.flightMapper;
 import static com.boot.flightbookingappspring.model.enums.Error.ERR_01;
 
 @Service
 @RequiredArgsConstructor
 public class FlightServiceImpl implements FlightService {
     private final FlightRepository flightRepository;
+    private final FlightMapper flightMapper;
 
     @Override
     public void createFlight(FlightDto flightDto) {

@@ -6,6 +6,8 @@ import com.boot.flightbookingappspring.dao.repository.BookingRepository;
 import com.boot.flightbookingappspring.dao.repository.FlightRepository;
 import com.boot.flightbookingappspring.exceptions.NoAvailableSeatException;
 import com.boot.flightbookingappspring.exceptions.RecordNotFoundException;
+import com.boot.flightbookingappspring.mapper.BookingMapper;
+import com.boot.flightbookingappspring.mapper.FlightMapper;
 import com.boot.flightbookingappspring.model.dto.BookingDto;
 import com.boot.flightbookingappspring.service.BookingService;
 import lombok.RequiredArgsConstructor;
@@ -13,8 +15,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static com.boot.flightbookingappspring.mapper.BookingMapper.bookingMapper;
-import static com.boot.flightbookingappspring.mapper.FlightMapper.flightMapper;
 import static com.boot.flightbookingappspring.model.enums.Error.ERR_01;
 import static com.boot.flightbookingappspring.model.enums.Error.ERR_02;
 
@@ -22,7 +22,8 @@ import static com.boot.flightbookingappspring.model.enums.Error.ERR_02;
 @RequiredArgsConstructor
 public class BookingServiceImpl implements BookingService {
     private final BookingRepository bookingRepository;
-
+    private final FlightMapper flightMapper;
+    private final BookingMapper bookingMapper;
     private final FlightRepository flightRepository;
 
 

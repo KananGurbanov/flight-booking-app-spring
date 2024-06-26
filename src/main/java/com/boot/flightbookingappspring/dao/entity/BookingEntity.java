@@ -19,7 +19,7 @@ public class BookingEntity {
     @Column(name = "ID")
     Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     FlightEntity flightEntity;
 
     @OneToMany(cascade = CascadeType.ALL)
